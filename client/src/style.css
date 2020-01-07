@@ -1,0 +1,65 @@
+.container {
+  position: relative;
+    background-image: radial-gradient(#D70026, #EDB83D, #D70026);
+}
+h1{
+  font-family: 'Anton', sans-serif;
+  color: #D70026
+}
+
+h2{
+  font-family: 'Teko', sans-serif;
+  font-size: 60px;
+  color: #F8F5F2
+}
+label{
+  font-family: 'Bree Serif', serif;
+  font-size: 30px;
+  color: #EDB83D;
+}
+#stat-title{
+  color: #D70026
+}
+#app{
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(-50%, -50%);
+}
+h4{
+  font-family: 'Cinzel', serif;
+  font-size: 40px;
+  font-weight: bold;
+}
+#button{
+  background-color: #D70026;
+  border: #D70026 1px solid;
+  color: #F8F5F2;
+}
+#button:hover{
+  background-color: #EDB83D;
+  color: #D70026;
+}
+#stats, #date, #form {
+  background-color: #000B29;
+}
+
+#date{
+  color: #D70026
+}
+
+#modal{
+  text-align: center;
+  color: #F8F5F2;
+}
+#modal-body{
+  background-image: radial-gradient(#EDB83D, #D70026, #EDB83D);
+}
+#modal-button{
+  background-color: #000B29;
+  color: #EDB83D
+}
+#modal-button:hover{
+  background-color: #F8F5F2;
+  color: #D70026;
+}

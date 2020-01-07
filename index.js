@@ -15,7 +15,7 @@ app.use(routes);
 
 
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/", {
+  process.env.MONGODB_URI || "mongodb://localhost/my-miles", {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
