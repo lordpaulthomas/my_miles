@@ -6,4 +6,7 @@ router.route("/stats")
   .get(statsController.getStats)
   .post(statsController.addStats)
 
+router.route("/stats/:id")
+  .delete(statsController.deleteStat)
+
 module.exports = router;

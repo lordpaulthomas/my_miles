@@ -5,5 +5,8 @@ export default {
   },
   getStats: function () {
     return axios.get('/stats')
+  },
+  deleteStat: function (id) {
+    return axios.delete('/stats/' + id)
   }
 }

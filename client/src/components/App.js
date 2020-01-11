@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import moment from 'moment';
 import API from './../utils/API';
 import { ModalFooter, Modal, ModalHeader, ModalBody, Button } from 'reactstrap';
-
+import Records from './Records';
 class App extends Component {
   state = {
     totalMiles: 0,
@@ -17,29 +17,33 @@ class App extends Component {
   }
 
   componentDidMount = () => {
+    this.setState({
+      date: ''
+    })
     var d = moment().format('MMMM Do YYYY, h:mm:ss a');
     this.setState({
-      date: this.state.date + d
+      date: d
     })
 
     API.getStats()
       .then(res => {
+        this.setState({
+          stats: res.data
+        })
         let total_miles = 0;
         let total_calories = 0;
         let total_time = 0;
-        for(let i = 0; i < res.data.length; i++){
+        for (let i = 0; i < res.data.length; i++) {
           total_miles += res.data[i].miles;
           total_calories += res.data[i].calories;
           total_time += res.data[i].time
 
         }
         this.setState({
-          totalMiles: this.state.miles + total_miles,
-          totalCalories: this.state.calories + total_calories,
-          totalTime: this.state.time + total_time
+          totalMiles: parseFloat(total_miles),
+          totalCalories: parseFloat(total_calories),
+          totalTime: parseFloat(total_time)
         })
-        console.log(this.state.miles)
-        console.log(res.data[0].miles)
       })
       .catch(err => console.log(err))
   }
@@ -76,12 +80,11 @@ class App extends Component {
   }
 
   addStats = () => {
-    console.log(this.state.stats.length)
-    this.setState({
-      totalMiles: parseFloat(parseFloat(this.state.totalMiles) + parseFloat(this.state.miles)).toLocaleString(),
-      totalCalories: parseFloat(parseFloat(this.state.totalCalories) + parseFloat(this.state.calories)).toLocaleString(),
-      totalTime: parseFloat(parseFloat(this.state.totalTime) + parseFloat(this.state.time)).toLocaleString()
-    })
+    // this.setState({
+    //   totalMiles: parseFloat(parseFloat(this.state.totalMiles) + parseFloat(this.state.miles)),
+    //   totalCalories: parseFloat(parseFloat(this.state.totalCalories) + parseFloat(this.state.calories)),
+    //   totalTime: parseFloat(parseFloat(this.state.totalTime) + parseFloat(this.state.time))
+    // })
     const stats = {
       miles: this.state.miles,
       calories: this.state.calories,
@@ -90,6 +93,7 @@ class App extends Component {
     }
     API.addStats(stats)
     this.toggle()
+    this.componentDidMount()
     document.getElementById('miles').value = '';
     document.getElementById('calories').value = '';
     document.getElementById('time').value = '';
@@ -132,20 +136,50 @@ class App extends Component {
               </div>
             </div>
           </div>
-          <Modal isOpen={this.state.modal} toggle={this.toggle}>
-            <ModalHeader toggle={this.toggle}></ModalHeader>
-            <ModalBody id="modal-body">
-              <h2 id="modal">Miles: {this.state.miles}</h2>
-              <h2 id="modal">Calories: {this.state.calories}</h2>
-              <h2 id="modal">Time: {this.state.time}</h2>
-              <div className="text-center">
-                <Button id='modal-button' className='m-2' onClick={this.toggle}>go back</Button>
-                <Button id='modal-button' className='m-2' onClick={this.addStats}>confirm</Button>
-              </div>
-            </ModalBody>
-            <ModalFooter />
-          </Modal>
+          <div className="row">
+            <table className="table table-hover table-bordered table-dark table-active">
+              <thead>
+                <tr>
+                  <th id="table-head" scope="col">Date</th>
+                  <th id="table-head" scope="col">Miles</th>
+                  <th id="table-head" scope="col">Calories</th>
+                  <th id="table-head" scope="col">Minutes</th>
+                  <th id="table-head" scope="col">Remove</th>
+                </tr>
+              </thead>
+              <tbody>
+                {
+                  this.state.stats.map(stat => {
+                    return (
+                      <Records
+                        componentDidMount={this.componentDidMount}
+                        key={stat._id}
+                        date={stat.date}
+                        miles={stat.miles}
+                        calories={stat.calories}
+                        time={stat.time}
+                        _id={stat._id}
+                      />
+                    )
+                  })
+                }
+              </tbody>
+            </table>
+          </div>
         </div>
+        <Modal isOpen={this.state.modal} toggle={this.toggle}>
+          <ModalHeader toggle={this.toggle}></ModalHeader>
+          <ModalBody id="modal-body">
+            <h2 id="modal">Miles: {this.state.miles}</h2>
+            <h2 id="modal">Calories: {this.state.calories}</h2>
+            <h2 id="modal">Time: {this.state.time}</h2>
+            <div className="text-center">
+              <Button id='modal-button' className='m-2' onClick={this.toggle}>go back</Button>
+              <Button id='modal-button' className='m-2' onClick={this.addStats}>confirm</Button>
+            </div>
+          </ModalBody>
+          <ModalFooter />
+        </Modal>
       </div>
 
     )

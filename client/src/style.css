@@ -6,9 +6,7 @@
 }
 .container {
     position: absolute;
-    border: black 1px solid;
-    box-shadow: 10px  10px 10px 10px dimgray;
-    background-image: radial-gradient(#F8F5F2, #EDB83D, #D70026);
+    box-shadow: 5px 5px 10px black;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -73,4 +71,12 @@ h4{
 #modal-button:hover{
   background-color: #F8F5F2;
   color: #D70026;
+}
+#table-head{
+  background-color: #EDB83D;
+  color: #000B29;
+}
+#tabe-data{
+  background-color: #000B29;
+  color: #F8F5F2;
 }
