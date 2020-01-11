@@ -81,11 +81,6 @@ class App extends Component {
   }
 
   addStats = () => {
-    // this.setState({
-    //   totalMiles: parseFloat(parseFloat(this.state.totalMiles) + parseFloat(this.state.miles)),
-    //   totalCalories: parseFloat(parseFloat(this.state.totalCalories) + parseFloat(this.state.calories)),
-    //   totalTime: parseFloat(parseFloat(this.state.totalTime) + parseFloat(this.state.time))
-    // })
     const stats = {
       miles: this.state.miles,
       calories: this.state.calories,
@@ -116,14 +111,14 @@ class App extends Component {
             <form id='form' className="col-lg-6 col-sm-6" style={{ margin: 'auto' }}>
               <div >
                 <div className="form-group text-center" >
-                  <label>Miles:</label>
-                  <input onChange={this.handleMilesInputChange} type='number' className="form-control" id='miles' />
+                  <label for="miles">Miles:</label>
+                  <input onChange={this.handleMilesInputChange} name="miles" type='number' className="form-control" id='miles' required />
                   <label>Calories:</label>
-                  <input onChange={this.handleCaloriesInputChange} type='number' className="form-control" id='calories' />
+                  <input onChange={this.handleCaloriesInputChange} type='number' className="form-control" id='calories' required />
                   <label>Time (min):</label>
-                  <input onChange={this.handleTimeInputChange} type='number' className="form-control" id='time' />
+                  <input onChange={this.handleTimeInputChange} type='number' className="form-control" id='time' required />
                   <div className="text-center">
-                    <button id='button' onClick={this.handleSubmit} style={{ width: '20vw' }} className='btn mt-2 mb-2'>Enter</button>
+                    <button type="submit" id='button' onClick={this.handleSubmit} style={{ width: '20vw' }} className='btn mt-2 mb-2'>Enter</button>
                   </div>
                 </div>
               </div>
@@ -177,12 +172,12 @@ class App extends Component {
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}></ModalHeader>
           <ModalBody id="modal-body">
-            <h2 id="modal">Miles: {this.state.miles}</h2>
-            <h2 id="modal">Calories: {this.state.calories}</h2>
-            <h2 id="modal">Time: {this.state.time}</h2>
+            <h2 className="row" id="modal">Miles: {this.state.miles}</h2>
+            <h2 className="row" id="modal">Calories: {this.state.calories}</h2>
+            <h2 className="row" id="modal">Time: {this.state.time}</h2>
             <div className="text-center">
-              <Button id='modal-button' className='m-2' onClick={this.toggle}>go back</Button>
-              <Button id='modal-button' className='m-2' onClick={this.addStats}>confirm</Button>
+              <Button id='modal-button' className='m-2' onClick={this.toggle}>Go Back</Button>
+              <Button id='modal-button' className='m-2' onClick={this.addStats}>Confirm</Button>
             </div>
           </ModalBody>
           <ModalFooter />

@@ -2,7 +2,7 @@
   position: relative;
   width: 100vw;
   height: 100vh;
-  background-image: radial-gradient(#D70026, #EDB83D, #D70026)
+  background-image: radial-gradient(#EDB83D,#D70026, #000B29)
 }
 .container {
     position: absolute;
@@ -49,7 +49,7 @@ h4{
   background-color: #EDB83D;
   color: #D70026;
 }
-#stats, #date, #form {
+#stats, #form {
   background-color: #000B29;
 }
 
@@ -82,6 +82,10 @@ h4{
 }
 
 @media screen and (max-width: 640px){
+  #background{
+    position: relative;
+    background-image: #000B29;
+  }
   #date { 
     margin: auto;
     color: #F8F5F2;
@@ -113,5 +117,9 @@ h4{
   #stat{
     color: #EDB83D
   }
+  div {
+    margin-bottom: 10px;
+  }
+  
 
 }

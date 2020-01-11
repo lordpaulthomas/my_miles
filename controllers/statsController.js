@@ -11,14 +11,12 @@ module.exports = {
     db.Stats
       .create(req.body)
       .then(function (dbSaved) {
-        console.log("Successful Save")
       })
       .catch(function (err) {
         console.log(err)
       })
   },
   deleteStat: function (req, res) {
-    console.log(req.params)
     db.Stats
       .findById({ _id: req.params.id })
       .then(dbModel => dbModel.delete())
