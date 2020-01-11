@@ -21,7 +21,7 @@ class App extends Component {
     this.setState({
       date: ''
     })
-    var d = moment().format('MMMM Do YYYY, h:mm:ss a');
+    var d = moment().format(`MMMM Do YYYY h:mm a`);
     this.setState({
       date: d
     })
@@ -107,9 +107,9 @@ class App extends Component {
       <div id="background">
 
         <div >
-          <div className="row p-3" style={{ opacity: '0.5' }}>
-            <div style={{ margin: 'auto' }}>
-              <h4 id='date' className="shadow-lg col-12 text-center">{this.state.date}</h4>
+          <div className="row">
+            <div style={{ margin: 'auto' }} className="col-sm-12">
+              <h4 id='date' className="col-12 text-center">{this.state.date}</h4>
             </div>
           </div>
           <div className='row'>
@@ -143,8 +143,8 @@ class App extends Component {
           </div>
         </div>
         <div className="row">
-          <div id="outline">
-            <table id="table" className="table table-hover table-hover table-bordered table-active">
+          <div id="outline" className="col-lg-12">
+            <table id="table" className="table table-hover table-dark table-bordered">
               <thead className='col-sm-12'>
                 <tr >
                   <th id="table-head" scope="col">Date</th>

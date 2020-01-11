@@ -54,7 +54,7 @@ h4{
 }
 
 #date{
-  color: #D70026
+  color: black
 }
 
 #modal{
@@ -84,10 +84,11 @@ h4{
 @media screen and (max-width: 640px){
   #date { 
     margin: auto;
-    color: #EDB83D;
+    color: #F8F5F2;
+    font-size: 3em;
   }
   h2{
-    font-size: 1.9em;
+    font-size: 2.9em;
     display: inline-block;
     margin-left: .5rem;
   }
@@ -107,7 +108,7 @@ h4{
     color: #F8F5F2;
   }
   #table:hover{
-    color: #D70026
+    color: #EDB83D
   }
   #stat{
     color: #EDB83D
