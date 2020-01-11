@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import API from './../utils/API';
+import './../style.css'
 
 class Records extends Component {
 
@@ -19,7 +20,7 @@ class Records extends Component {
         <td id="tabe-data">{this.props.time}</td>
         <td id="tabe-data">
           <button onClick={() => this.deleteStat(this.props._id)}
-            className='btn btn-outline-dark text-light'>X</button>
+            className='btn btn-outline-light'>X</button>
         </td>
       </tr>
     )

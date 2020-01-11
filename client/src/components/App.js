@@ -3,6 +3,7 @@ import moment from 'moment';
 import API from './../utils/API';
 import { ModalFooter, Modal, ModalHeader, ModalBody, Button } from 'reactstrap';
 import Records from './Records';
+import './../style.css'
 class App extends Component {
   state = {
     totalMiles: 0,
@@ -104,42 +105,48 @@ class App extends Component {
 
     return (
       <div id="background">
-        <div className='container' style={{ width: '100vw' }}>
-          <div className="row">
+
+        <div >
+          <div className="row p-3" style={{ opacity: '0.5' }}>
             <div style={{ margin: 'auto' }}>
-              <h4 id='date' className="pl-5 pr-5">{this.state.date}</h4>
+              <h4 id='date' className="shadow-lg col-12 text-center">{this.state.date}</h4>
             </div>
           </div>
           <div className='row'>
-            <form id='form' className="col-lg-6 " style={{ margin: 'auto' }}>
+            <form id='form' className="col-lg-6 col-sm-6" style={{ margin: 'auto' }}>
               <div >
-                <div className="form-group" >
+                <div className="form-group text-center" >
                   <label>Miles:</label>
                   <input onChange={this.handleMilesInputChange} type='number' className="form-control" id='miles' />
                   <label>Calories:</label>
                   <input onChange={this.handleCaloriesInputChange} type='number' className="form-control" id='calories' />
                   <label>Time (min):</label>
                   <input onChange={this.handleTimeInputChange} type='number' className="form-control" id='time' />
-                  <button id='button' onClick={this.handleSubmit} style={{ width: '10vw' }} className='btn mt-2 mb-2 float-right'>Enter</button>
-
+                  <div className="text-center">
+                    <button id='button' onClick={this.handleSubmit} style={{ width: '20vw' }} className='btn mt-2 mb-2'>Enter</button>
+                  </div>
                 </div>
               </div>
             </form>
             <div id='stats' className="col-lg-6 pt-2">
               <div>
-                <div>
+                <div className='text-center'>
                   <h1 id="stat-title">Your Stats</h1>
                 </div>
-                <h2>Miles: {this.state.totalMiles}</h2>
-                <h2>Calories: {this.state.totalCalories}</h2>
-                <h2>Time: {this.state.totalTime} min</h2>
+                <div className="text-center">
+                  <h2>Miles: <span id="stat">{this.state.totalMiles.toLocaleString()}</span></h2>
+                  <h2>Calories: <span id="stat">{this.state.totalCalories.toLocaleString()}</span></h2>
+                  <h2>Time: <span id="stat">{this.state.totalTime.toLocaleString()} min </span></h2>
+                </div>
               </div>
             </div>
           </div>
-          <div className="row">
-            <table className="table table-hover table-bordered table-dark table-active">
-              <thead>
-                <tr>
+        </div>
+        <div className="row">
+          <div id="outline">
+            <table id="table" className="table table-hover table-hover table-bordered table-active">
+              <thead className='col-sm-12'>
+                <tr >
                   <th id="table-head" scope="col">Date</th>
                   <th id="table-head" scope="col">Miles</th>
                   <th id="table-head" scope="col">Calories</th>

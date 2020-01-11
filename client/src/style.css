@@ -76,7 +76,41 @@ h4{
   background-color: #EDB83D;
   color: #000B29;
 }
-#tabe-data{
+#table-data{
   background-color: #000B29;
   color: #F8F5F2;
+}
+
+@media screen and (max-width: 640px){
+  #date { 
+    margin: auto;
+    color: #EDB83D;
+  }
+  h2{
+    font-size: 1.9em;
+    display: inline-block;
+    margin-left: .5rem;
+  }
+  th{
+    font-size: 4vw;
+  }
+  #miles, #calories, #time {
+    width: 50vw;
+    margin: auto;
+  }
+  #table-head{
+    background-color: #EDB83D;
+    color: #000B29;
+  }
+  #table{
+    background-color: #000B29;
+    color: #F8F5F2;
+  }
+  #table:hover{
+    color: #D70026
+  }
+  #stat{
+    color: #EDB83D
+  }
+
 }
