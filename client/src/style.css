@@ -1,6 +1,17 @@
-.container {
+#background{
   position: relative;
-    background-image: radial-gradient(#D70026, #EDB83D, #D70026);
+  width: 100vw;
+  height: 100vh;
+  background-image: radial-gradient(#D70026, #EDB83D, #D70026)
+}
+.container {
+    position: absolute;
+    border: black 1px solid;
+    box-shadow: 10px  10px 10px 10px dimgray;
+    background-image: radial-gradient(#F8F5F2, #EDB83D, #D70026);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 h1{
   font-family: 'Anton', sans-serif;
