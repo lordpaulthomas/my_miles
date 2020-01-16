@@ -25,13 +25,12 @@ class Records extends Component {
   render() {
     return (
       <tr>
-        <td id="tabe-data">{this.props.date}</td>
-        <td id="tabe-data">{this.props.miles}</td>
-        <td id="tabe-data">{this.props.calories}</td>
-        <td id="tabe-data">{this.props.time}</td>
-        <td id="tabe-data">{this.props.calMin}</td>
-
-        <td id="tabe-data">
+        <td id="tabe-data" style={{width: '20vw'}}  >{this.props.date}</td>
+        <td id="tabe-data" style={{width: '16vw'}}  >{this.props.miles}</td>
+        <td id="tabe-data" style={{width: '16vw'}}  >{this.props.calories}</td>
+        <td id="tabe-data" style={{width: '16vw'}}  >{this.props.time}</td>
+        <td id="tabe-data" style={{width: '16vw'}}  >{this.props.calMin}</td>
+        <td id="tabe-data" style={{width: '16vw'}}  >
           <button onClick={() => this.toggle_delete(this.props._id)}
             className='btn btn-outline-light'>X</button>
         </td>

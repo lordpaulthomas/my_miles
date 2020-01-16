@@ -21,7 +21,7 @@ class App extends Component {
     this.setState({
       date: ''
     })
-    var d = moment().format(`MMMM Do YYYY h:mm a`);
+    var d = moment().format(`MMMM Do YYYY H:mm`);
     this.setState({
       date: d
     })
@@ -139,15 +139,15 @@ class App extends Component {
         </div>
         <div className="row">
           <div id="outline" className="col-lg-12">
-            <table id="table" className="table table-hover table-dark table-bordered">
+            <table id="table">
               <thead className='col-sm-12'>
                 <tr >
-                  <th id="table-head" scope="col">Date</th>
-                  <th id="table-head" scope="col">Miles</th>
-                  <th id="table-head" scope="col">Calories</th>
-                  <th id="table-head" scope="col">Minutes</th>
-                  <th id="table-head" scope="col">Cal/Min</th>
-                  <th id="table-head" scope="col">Remove</th>
+                  <th id="table-head" style={{width: '20vw'}} scope="col">Date</th>
+                  <th id="table-head" style={{width: '16vw'}}  scope="col">Miles</th>
+                  <th id="table-head" style={{width: '16vw'}}   scope="col">Cal</th>
+                  <th id="table-head" style={{width: '16vw'}}   scope="col">Min</th>
+                  <th id="table-head" style={{width: '16vw'}}   scope="col">Cal/Min</th>
+                  <th id="table-head" style={{width: '16vw'}}   scope="col">Remove</th>
                 </tr>
               </thead>
               <tbody>
