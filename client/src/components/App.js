@@ -109,7 +109,7 @@ class App extends Component {
           </div>
           <div className='row'>
             <form id='form' className="col-lg-6 col-sm-6" style={{ margin: 'auto' }}>
-              <div >
+              <div className="">
                 <div className="form-group text-center" >
                   <label for="miles">Miles:</label>
                   <input onChange={this.handleMilesInputChange} name="miles" type='number' className="form-control" id='miles' required />
@@ -146,6 +146,7 @@ class App extends Component {
                   <th id="table-head" scope="col">Miles</th>
                   <th id="table-head" scope="col">Calories</th>
                   <th id="table-head" scope="col">Minutes</th>
+                  <th id="table-head" scope="col">Cal/Min</th>
                   <th id="table-head" scope="col">Remove</th>
                 </tr>
               </thead>
@@ -159,6 +160,7 @@ class App extends Component {
                         date={stat.date}
                         miles={stat.miles}
                         calories={stat.calories}
+                        calMin={(parseFloat(stat.calories) / parseFloat(stat.time)).toFixed(2)}
                         time={stat.time}
                         _id={stat._id}
                       />
@@ -171,10 +173,10 @@ class App extends Component {
         </div>
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}></ModalHeader>
-          <ModalBody id="modal-body">
-            <h2 className="row" id="modal">Miles: {this.state.miles}</h2>
-            <h2 className="row" id="modal">Calories: {this.state.calories}</h2>
-            <h2 className="row" id="modal">Time: {this.state.time}</h2>
+          <ModalBody id="modal-body" >
+            <h2 className="text-center" id="modal">Miles: {this.state.miles}</h2>
+            <h2 id="modal">Calories: {this.state.calories}</h2>
+            <h2 id="modal">Time: {this.state.time}</h2>
             <div className="text-center">
               <Button id='modal-button' className='m-2' onClick={this.toggle}>Go Back</Button>
               <Button id='modal-button' className='m-2' onClick={this.addStats}>Confirm</Button>
